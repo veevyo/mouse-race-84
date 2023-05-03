@@ -3,8 +3,9 @@
 #include <keypadc.h>
 #include <sys/timers.h>
 #include <ti/screen.h>
-/* Include the sprite data */
+#include <fontlibc.h>
 #include "gfx/gfx.h"
+#include "fonts/fonts.h"
 
 #define START_X_MOU ((GFX_LCD_WIDTH - mouse_width) / 2)
 #define START_Y_MOU 210
@@ -12,7 +13,6 @@
 #define START_Y_CAT 10
 #define TIME (*(volatile uint32_t*)0xF30044)
 
-/* Create a buffer to store the background behind the sprite */
 gfx_UninitedSprite(background, mouse_width, mouse_height);
 gfx_UninitedSprite(background1, cat_width, cat_height);
 
@@ -20,6 +20,7 @@ void DrawSprite(int x, int y, int sprite_type); //0 for mouse, 1 for cat
 void input(int *y);
 void moveCat(int *x, int *y);
 int collisionCheck(int x1, int y1, int x2, int y2);
+char * itoa(int num, char * buffer, int base);
 
 int main(void)
 {
@@ -36,29 +37,38 @@ int main(void)
     	int m_y = START_Y_MOU;
 	int c_x = START_X_CAT;
 	int c_y = START_Y_CAT;
+	int score = 0;
+	int lives = 3;
 
     	gfx_Begin();
 
-    	/* Set the palette for the sprites */
     	gfx_SetPalette(global_palette, sizeof_global_palette, 0);
    	gfx_FillScreen(1);
     	gfx_SetTransparentColor(0);
 
-    	/* Draw to the offscreen buffer */
    	gfx_SetDrawBuffer();
 
-    	/* Draw a bunch of random sprites to demonstrate the partial redraw */
-
-    	/* Get the original background behind the sprite */
     	gfx_GetSprite(background, m_x, m_y);
     	gfx_GetSprite(background1, c_x, c_y);
 
-    	/* Draw the main sprite */
     	DrawSprite(m_x, m_y,0);
     	DrawSprite(c_x, c_y,1);
 	gfx_Sprite_NoClip(cheese, 150, 5);
-    	/* Copy the buffer to the screen */
-    	/* Same as gfx_Blit(gfx_buffer) */
+
+	char buffer[20]; //different kind of buffer; for atoi
+        fontlib_SetFont(test_font, 0);
+        fontlib_SetWindow(300, 0, 10, 10);
+        fontlib_SetCursorPosition(10, 10);
+        fontlib_SetColors(0, 1);
+	fontlib_DrawString("Lives: ");
+        fontlib_DrawString(itoa(lives, buffer, 10));
+
+	fontlib_SetFont(test_font, 0);
+        fontlib_SetCursorPosition(250, 10);
+        fontlib_SetColors(0, 1);
+        fontlib_DrawString("Score: ");
+        fontlib_DrawString(itoa(score, buffer, 10));
+
     	gfx_BlitBuffer();
 
     	do {
@@ -67,34 +77,47 @@ int main(void)
             	DrawSprite(m_x, m_y,0);
 		DrawSprite(c_x, c_y, 1);
 		if (collisionCheck(m_x, m_y, c_x, c_y)) {
+			lives--;
 			m_x = START_X_MOU;
 			m_y = START_Y_MOU;
+			fontlib_ClearWindow();
+                        fontlib_SetCursorPosition(10, 10);
+                        fontlib_DrawString("Lives: ");
+                        fontlib_DrawString(itoa(lives, buffer, 10));
+
+
 		}
-
+		else if (collisionCheck(m_x, m_y, 150, 5)) {
+			score++;
+			m_x = START_X_MOU;
+                        m_y = START_Y_MOU;
+			fontlib_ClearWindow();
+			fontlib_SetCursorPosition(250, 10);
+			fontlib_DrawString("Score: ");
+			fontlib_DrawString(itoa(score, buffer, 10));
+		}
             	gfx_BlitBuffer();
+    	} while (lives);
 
-    	} while (kb_Data[6] != kb_Clear);
-
-    	/* End graphics drawing */
-    	gfx_End();
-
-    	return 0;
+	gfx_FillScreen(1);
+        gfx_PrintStringXY("Game over! Your score was:", (GFX_LCD_WIDTH - gfx_GetStringWidth("Game over! Your score was:")) / 2, (GFX_LCD_HEIGHT - 8) / 2);
+        gfx_PrintStringXY(itoa(score, buffer, 10), GFX_LCD_WIDTH - gfx_GetStringWidth(itoa(score, buffer, 10)) / 2, (GFX_LCD_HEIGHT - 10) / 2);
+	delay(2);
+	if (kb_Data[6] == kb_Clear) {
+    		gfx_End();
+    		return 0;
+	}
 }
 
-/* Function for drawing the main sprite */
 void DrawSprite(int x, int y, int sprite_type)
 {
 	if (sprite_type == 0) {
     		static int oldX = START_X_MOU;
     		static int oldY = START_Y_MOU;
-
-    		/* Render the original background */
     		gfx_Sprite(background, oldX, oldY);
 
-    		/* Get the background behind the sprite */
     		gfx_GetSprite(background, x, y);
 
-    		/* Render the sprite */
     		gfx_TransparentSprite(mouse, x, y);
 
     		oldX = x;
@@ -103,14 +126,10 @@ void DrawSprite(int x, int y, int sprite_type)
 	else {
 		static int oldX = START_X_CAT;
                 static int oldY = START_Y_CAT;
-
-                /* Render the original background */
                 gfx_Sprite(background1, oldX, oldY);
 
-                /* Get the background behind the sprite */
                 gfx_GetSprite(background1, x, y);
 
-                /* Render the sprite */
                 gfx_TransparentSprite(cat, x, y);
 
                 oldX = x;
@@ -153,8 +172,46 @@ int inRange(int min, int max, int value) {
 }
 
 int collisionCheck(int x1, int y1, int x2, int y2) {
+	delay(1);
         if (inRange(0, 30, abs(x1 - x2)) && inRange(0, 30, abs(y1 - y2))) {
                 return 1;
         }
         return 0;
+}
+void reverseString(char str[], int length) {
+        int start = 0;
+        int end = length - 1;
+        while (start < end) {
+                char temp = str[start];
+                str[start] = str[end];
+                str[end] = temp;
+                end--;
+                start++;
+        }
+}
+char* itoa(int num, char* str, int base)
+{
+        int i = 0;
+        int isNegative = 0;
+        if (num == 0) {
+                str[i++] = '0';
+                str[i] = '\0';
+                return str;
+        }
+        if (num < 0 && base == 10) {
+                isNegative = 1;
+                num = -num;
+        }
+        while (num != 0) {
+                int rem = num % base;
+                str[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
+                num = num / base;
+        }
+        if (isNegative) {
+                str[i++] = '-';
+        }
+        str[i] = '\0';
+        reverseString(str, i);
+
+        return str;
 }

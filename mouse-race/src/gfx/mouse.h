@@ -5,11 +5,11 @@
 extern "C" {
 #endif
 
-#define mouse_width 41
-#define mouse_height 41
-#define mouse_size 1683
+#define mouse_width 14
+#define mouse_height 24
+#define mouse_size 338
 #define mouse ((gfx_sprite_t*)mouse_data)
-extern unsigned char mouse_data[1683];
+extern unsigned char mouse_data[338];
 
 #ifdef __cplusplus
 }
