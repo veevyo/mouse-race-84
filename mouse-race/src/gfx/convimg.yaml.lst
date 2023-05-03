@@ -1,0 +1,9 @@
+global_palette.h
+global_palette.c
+cat.h
+cat.c
+mouse.h
+mouse.c
+cheese.h
+cheese.c
+gfx.h

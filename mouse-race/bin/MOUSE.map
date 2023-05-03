@@ -1,0 +1,87 @@
+Section          Base   Top    High   Length
+---------------- ------ ------ ------ -------
+.icon            D1A882 D1A896            14h
+.init.libs       D1A896 D1A8EE            58h
+.libs            D1A8EE D1A93B            4Dh
+.init.clock      D1A93B D1A93B             0h
+.init.reruncheck D1A93B D1A93B             0h
+.init            D1A93B D1A967            2Ch
+.fini            D1A967 D1A99B            34h
+.text            D1A99B D1AD89           3EEh
+.data            D1AD89 D1C480          16F7h
+.rodata          D1C480 D1C4A2            22h
+.init_array      000000 000000             0h
+.ctors           000000 000000             0h
+.dtors           000000 000000             0h
+.fini_array      000000 000000             0h
+.bss             D052C6 D0667F D13FD8   13B9h
+.header          D1A87F D1A882             3h
+
+Label                       Value
+-------------------------   ------
+___low_bss                = D052C6
+___len_bss                = 0013B9
+___heaptop                = D13FD8
+___heapbot                = D0667F
+___libs                   = D1A8EE
+___init_array_count       = 000000
+___ctors_count            = 000000
+___dtors_count            = 000000
+___fini_array_count       = 000000
+__stack                   = D1A87E
+__frameset                = D1A99B
+__frameset0               = D1A9A9
+__idvrmu                  = D1A9B4
+__iremu                   = D1A9CC
+__ixor                    = D1A9D3
+__ftol                    = 00027C
+__ftoul                   = 00027C
+__ltof                    = 000284
+__setflag                 = 000218
+__ultof                   = 000280
+__sand                    = D1A9EC
+_os_DisableHomeTextBuffer = D1A9F5
+_os_EnableHomeTextBuffer  = D1AA07
+_random                   = D1AA19
+_srandom                  = D1AA70
+__state                   = D1AD89
+.missingappvar            = D1C480
+.libloadname              = D1C485
+.libloadnamelen           = 000007
+.webaddress               = D1C48D
+__start                   = D1A93B
+___exithl                 = D1A967
+skip._exit                = D1A967
+skip.__Exit               = D1A967
+skip._abort               = D1A967
+_exit.sp                  = D1A968
+_exit.flash_wait_states   = D1A972
+_main                     = D1AA87
+_DrawSprite               = D1AC3B
+_input                    = D1ACEA
+_moveCat                  = D1AD46
+_background_data          = D052C6
+_background               = D1AD99
+_background1_data         = D05959
+_background1              = D1AD9C
+_global_palette           = D1AD9F
+_cheese_data              = D1ADC5
+_DrawSprite.oldX          = D1B0BB
+_DrawSprite.oldY          = D1B0BE
+_mouse_data               = D1B0C1
+_DrawSprite.oldX.1        = D1B754
+_DrawSprite.oldY.2        = D1B757
+_cat_data                 = D1B75A
+lib.LibLoad               = D1A8EE
+_#gfx_Begin               = D1A901
+_#gfx_End                 = D1A905
+_#gfx_SetPalette          = D1A909
+_#gfx_FillScreen          = D1A90D
+_#gfx_SetDraw             = D1A911
+_#gfx_Blit                = D1A915
+_#gfx_Sprite              = D1A919
+_#gfx_TransparentSprite   = D1A91D
+_#gfx_Sprite_NoClip       = D1A921
+_#gfx_GetSprite           = D1A925
+_#gfx_SetTransparentColor = D1A929
+_#kb_Scan                 = D1A937
