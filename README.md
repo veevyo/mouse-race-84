@@ -1,16 +1,23 @@
 # mouse-race-84
-https://user-images.githubusercontent.com/41368076/235826284-567ca060-1d30-452f-b934-24c3960377ed.mp4
+https://user-images.githubusercontent.com/41368076/236018658-7fb76e74-d0ef-43a9-b659-707649ffe30f.mp4
 
 a game for the TI-84+CE written in C. it's a clone of Space Race (kind of?).
 
 # known issues
-- i'd like there to be a proper end screen, but for some reason the game just crashes on gameover
+- <s>i'd like there to be a proper end screen, but for some reason the game just crashes on gameover</s>
+   - fixed as of May 3, 2023
 - collision should be improved
 
 # future release plans
-- restrict the spawning range of the cat to be between the cheese and the mouse spawn point
+- <s>restrict the spawning range of the cat to be between the cheese and the mouse spawn point</s>
+   - fixed as of May 3, 2023
 - add a funny background image
 
 # attribution
 - i used the <a href="https://github.com/CE-Programming/toolchain">C/C++ CE programming toolchain</a>
+- the mouse is courtesy of <a href="https://opengameart.org/content/rodents-rat-rework">Tuomo Untinen (Reemax) & Jordan Irwin (AntumDeluge)</a>
+- the cat is courtesy of <a href="https://opengameart.org/content/pixel-cat-0">alizard</a>
 - you can change/edit/redistribute my code as you see fit, i'm not bothered
+
+
+
