@@ -10,7 +10,7 @@ a game for the TI-84+CE written in C. it's a clone of Space Race (kind of?).
 
 # future release plans
 - <s>restrict the spawning range of the cat to be between the cheese and the mouse spawn point</s>
-   - fixed as of May 3, 2023
+   - implemented as of May 3, 2023
 - add a funny background image
 
 # attribution
