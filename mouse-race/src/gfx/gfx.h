@@ -10,6 +10,8 @@ extern "C" {
 #include "cat.h"
 #include "mouse.h"
 #include "cheese.h"
+#define floor_palette_offset 0
+#include "floor.h"
 
 #ifdef __cplusplus
 }

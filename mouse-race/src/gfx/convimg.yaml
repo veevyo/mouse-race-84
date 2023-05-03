@@ -13,6 +13,12 @@ converts:
       - cat.png
       - mouse.png
       - cheese.png
+  - name: floor
+    palette: global_palette
+    compress: zx7
+    width-and-height: false
+    images:
+      - floor.png
 
 outputs:
   - type: c
@@ -21,4 +27,5 @@ outputs:
       - global_palette
     converts:
       - sprites
+      - floor
 

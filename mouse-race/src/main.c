@@ -2,6 +2,7 @@
 #include <graphx.h>
 #include <keypadc.h>
 #include <sys/timers.h>
+#include <compression.h>
 #include <ti/screen.h>
 #include <fontlibc.h>
 #include "gfx/gfx.h"
@@ -43,8 +44,9 @@ int main(void)
     	gfx_Begin();
 
     	gfx_SetPalette(global_palette, sizeof_global_palette, 0);
-   	gfx_FillScreen(1);
-    	gfx_SetTransparentColor(0);
+   	//gfx_FillScreen(1);
+	//zx7_Decompress(gfx_vram, floor_compressed);
+    	//gfx_SetTransparentColor(0);
 
    	gfx_SetDrawBuffer();
 
@@ -84,8 +86,6 @@ int main(void)
                         fontlib_SetCursorPosition(10, 10);
                         fontlib_DrawString("Lives: ");
                         fontlib_DrawString(itoa(lives, buffer, 10));
-
-
 		}
 		else if (collisionCheck(m_x, m_y, 150, 5)) {
 			score++;
@@ -99,10 +99,12 @@ int main(void)
             	gfx_BlitBuffer();
     	} while (lives);
 
-	gfx_FillScreen(1);
-        gfx_PrintStringXY("Game over! Your score was:", (GFX_LCD_WIDTH - gfx_GetStringWidth("Game over! Your score was:")) / 2, (GFX_LCD_HEIGHT - 8) / 2);
-        gfx_PrintStringXY(itoa(score, buffer, 10), GFX_LCD_WIDTH - gfx_GetStringWidth(itoa(score, buffer, 10)) / 2, (GFX_LCD_HEIGHT - 10) / 2);
-	delay(2);
+	if (!lives) {
+		os_ClrLCD();
+		zx7_Decompress(gfx_vram, floor_compressed);
+		delay(2500);
+	}
+
 	if (kb_Data[6] == kb_Clear) {
     		gfx_End();
     		return 0;
@@ -157,10 +159,10 @@ void input(int *y) {
 }
 
 void moveCat(int *x, int *y) {
-	*x -= 5;
+	*x -= 7;
         if (*x < 5) {
         	*x = 300;
-                *y = randInt(0, 240 - cat_height);
+                *y = randInt(0, 200 - cat_height);
        	}
 }
 

@@ -6,4 +6,6 @@ mouse.h
 mouse.c
 cheese.h
 cheese.c
+floor.h
+floor.c
 gfx.h

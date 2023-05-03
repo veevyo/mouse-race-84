@@ -2,14 +2,14 @@ Section          Base   Top    High   Length
 ---------------- ------ ------ ------ -------
 .icon            D1A882 D1A896            14h
 .init.libs       D1A896 D1A8EE            58h
-.libs            D1A8EE D1A966            78h
-.init.clock      D1A966 D1A981            1Bh
-.init.reruncheck D1A981 D1A981             0h
-.init            D1A981 D1A9AD            2Ch
-.fini            D1A9AD D1A9E1            34h
-.text            D1A9E1 D1B28C           8ABh
-.data            D1B28C D1BC00           974h
-.rodata          D1BC00 D1D15D          155Dh
+.libs            D1A8EE D1A956            68h
+.init.clock      D1A956 D1A971            1Bh
+.init.reruncheck D1A971 D1A971             0h
+.init            D1A971 D1A99D            2Ch
+.fini            D1A99D D1A9D1            34h
+.text            D1A9D1 D1B222           851h
+.data            D1B222 D1BFCA           DA8h
+.rodata          D1BFCA D1D50C          1542h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -29,68 +29,69 @@ ___ctors_count              = 000000
 ___dtors_count              = 000000
 ___fini_array_count         = 000000
 __stack                     = D1A87E
-__frameset                  = D1A9E1
-__frameset0                 = D1A9EF
-__idivs                     = D1A9FA
-__idvrms                    = D1AA01
-__idvrmu                    = D1AA2F
-__imulu                     = D1AA47
-__ineg                      = D1AA77
-__iremu                     = D1AA80
-__ishru                     = D1AA87
-__ixor                      = D1AAC8
-__lmulu                     = D1AAE1
+__frameset                  = D1A9D1
+__frameset0                 = D1A9DF
+__idivs                     = D1A9EA
+__idvrms                    = D1A9F1
+__idvrmu                    = D1AA1F
+__imulu                     = D1AA37
+__ineg                      = D1AA67
+__iremu                     = D1AA70
+__ixor                      = D1AA77
+__lmulu                     = D1AA90
 __ftol                      = 00027C
 __ftoul                     = 00027C
 __ltof                      = 000284
 __setflag                   = 000218
 __ultof                     = 000280
-__sand                      = D1AB3D
-_atomic_load_increasing_32  = D1AB46
-_delay                      = D1AB6B
-_os_DisableHomeTextBuffer   = D1AB95
-_os_EnableHomeTextBuffer    = D1ABA7
-_random                     = D1ABB9
-_srandom                    = D1AC10
-__state                     = D1B28C
-___sleep_common.3           = D1AC29
-_clock                      = D1AC42
-.missingappvar              = D1BC00
-.libloadname                = D1BC05
+__sand                      = D1AAEC
+_atomic_load_increasing_32  = D1AAF5
+_delay                      = D1AB1A
+_os_DisableHomeTextBuffer   = D1AB44
+_os_EnableHomeTextBuffer    = D1AB56
+_random                     = D1AB68
+_srandom                    = D1ABBF
+__state                     = D1B222
+___sleep_common.3           = D1ABD8
+_os_ClrLCD                  = 02080C
+_zx7_Decompress             = D1ABF1
+_clock                      = D1AC58
+.missingappvar              = D1BFCA
+.libloadname                = D1BFCF
 .libloadnamelen             = 000007
-.webaddress                 = D1BC0D
-___init_clock               = D1A966
-__start                     = D1A981
-___exithl                   = D1A9AD
-skip._exit                  = D1A9AD
-skip.__Exit                 = D1A9AD
-skip._abort                 = D1A9AD
-_exit.sp                    = D1A9AE
-_exit.flash_wait_states     = D1A9B8
-_main                       = D1AC4D
-_DrawSprite                 = D1AFB8
-_itoa                       = D1B067
-_input                      = D1B152
-_moveCat                    = D1B1AE
-_collisionCheck             = D1B1F1
-_reverseString              = D1B251
-_test_font_data             = D1BC22
+.webaddress                 = D1BFD7
+___init_clock               = D1A956
+__start                     = D1A971
+___exithl                   = D1A99D
+skip._exit                  = D1A99D
+skip.__Exit                 = D1A99D
+skip._abort                 = D1A99D
+_exit.sp                    = D1A99E
+_exit.flash_wait_states     = D1A9A8
+_main                       = D1AC63
+_DrawSprite                 = D1AF4E
+_itoa                       = D1AFFD
+_input                      = D1B0E8
+_moveCat                    = D1B144
+_collisionCheck             = D1B187
+_reverseString              = D1B1E7
+_test_font_data             = D1BFEC
 _background_data            = D052C6
-_background                 = D1B29C
+_background                 = D1B232
 _background1_data           = D05418
-_background1                = D1B29F
-_global_palette             = D1B2A2
-_cheese_data                = D1B2C8
-_test_font                  = D1B5BE
-_.str                       = D1D132
-_.str.1                     = D1D13A
-_.str.2                     = D1D142
-_DrawSprite.oldX            = D1B5C1
-_DrawSprite.oldY            = D1B5C4
-_mouse_data                 = D1B5C7
-_DrawSprite.oldX.3          = D1B719
-_DrawSprite.oldY.4          = D1B71C
-_cat_data                   = D1B71F
+_background1                = D1B235
+_global_palette             = D1B238
+_cheese_data                = D1B288
+_test_font                  = D1B57E
+_.str                       = D1D4FC
+_.str.1                     = D1D504
+_floor_compressed           = D1B581
+_DrawSprite.oldX            = D1B98B
+_DrawSprite.oldY            = D1B98E
+_mouse_data                 = D1B991
+_DrawSprite.oldX.2          = D1BAE3
+_DrawSprite.oldY.3          = D1BAE6
+_cat_data                   = D1BAE9
 lib.LibLoad                 = D1A8EE
 _#fontlib_SetWindow         = D1A903
 _#fontlib_SetCursorPosition = D1A907
@@ -101,14 +102,10 @@ _#fontlib_ClearWindow       = D1A917
 _#gfx_Begin                 = D1A924
 _#gfx_End                   = D1A928
 _#gfx_SetPalette            = D1A92C
-_#gfx_FillScreen            = D1A930
-_#gfx_SetDraw               = D1A934
-_#gfx_Blit                  = D1A938
-_#gfx_PrintStringXY         = D1A93C
-_#gfx_GetStringWidth        = D1A940
-_#gfx_Sprite                = D1A944
-_#gfx_TransparentSprite     = D1A948
-_#gfx_Sprite_NoClip         = D1A94C
-_#gfx_GetSprite             = D1A950
-_#gfx_SetTransparentColor   = D1A954
-_#kb_Scan                   = D1A962
+_#gfx_SetDraw               = D1A930
+_#gfx_Blit                  = D1A934
+_#gfx_Sprite                = D1A938
+_#gfx_TransparentSprite     = D1A93C
+_#gfx_Sprite_NoClip         = D1A940
+_#gfx_GetSprite             = D1A944
+_#kb_Scan                   = D1A952
