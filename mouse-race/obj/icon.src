@@ -1,8 +1,26 @@
 	section .icon
 
 	jp	___prgm_init
-	db	$02
-
+	db	$01
+	public ___icon
+___icon:
+	db	$10, $10
+	db	$FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $20, $20, $20, $FF, $FF, $FF, $FF, $20, $20, $20, $FF, $FF, $FF
+	db	$FF, $FF, $20, $8A, $AB, $AB, $20, $FF, $FF, $20, $AB, $AB, $8A, $20, $FF, $FF
+	db	$FF, $FF, $20, $8A, $AB, $CB, $20, $FF, $FF, $20, $CB, $AB, $8A, $20, $FF, $FF
+	db	$FF, $FF, $FF, $20, $8A, $20, $20, $20, $20, $20, $20, $8A, $20, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $20, $61, $62, $62, $62, $62, $61, $20, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $20, $29, $29, $62, $62, $29, $29, $20, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $20, $62, $ED, $62, $62, $ED, $62, $20, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $20, $62, $62, $62, $62, $62, $62, $20, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $20, $61, $62, $8A, $AB, $62, $61, $20, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $FF, $20, $62, $AB, $AB, $62, $20, $FF, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $FF, $FF, $20, $20, $20, $20, $FF, $FF, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+	db	$FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 	public ___description
 ___description:
 	db	"Avoid the cat!", 0
