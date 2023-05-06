@@ -14,10 +14,13 @@ a game for the TI-84+CE written in C. it's a clone of Space Race (kind of?).
 - add a funny background image
 
 # attribution
-- i used the <a href="https://github.com/CE-Programming/toolchain">C/C++ CE programming toolchain</a>
-- the mouse is courtesy of <a href="https://opengameart.org/content/rodents-rat-rework">Tuomo Untinen (Reemax) & Jordan Irwin (AntumDeluge)</a>
-- the cat is courtesy of <a href="https://opengameart.org/content/pixel-cat-0">alizard</a>
-- you can change/edit/redistribute my code as you see fit, i'm not bothered
+- code
+   - i used the <a href="https://github.com/CE-Programming/toolchain">C/C++ CE programming toolchain</a>
+   - you can change/edit/redistribute my code as you see fit, i'm not bothered
+- artwork
+   - the mouse is courtesy of <a href="https://opengameart.org/content/rodents-rat-rework">Tuomo Untinen (Reemax) & Jordan Irwin (AntumDeluge)</a>
+   - the cat is courtesy of <a href="https://opengameart.org/content/pixel-cat-0">alizard</a>
+   - the cheese is courtesy of <a href="https://opengameart.org/content/icons-food">thekingphoenix</a> 
 
 
 
